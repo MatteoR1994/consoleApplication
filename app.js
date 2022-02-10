@@ -9,10 +9,17 @@ const {EmptyStringError, InvalidStringError, PartialInvalidStringError, Potentia
 
 //console.log(process.argv.splice(2)); // Prendo solo gli ultimi due input.
 
+
+/************************** Leggo i comandi, gli argomenti **************************/
+
 const argie = process.argv.splice(2); // Prendo solo gli ultimi due input e li metto in una variabile array.
 
 const fileToRead = argie[0]; // Prendo il file dove andare a leggere.
 const fileToWrite = argie[1]; // Prendo il file dove andare a scrivere.
+
+/**************************************************************************************/
+
+/************************** Leggo il file **************************/
 
 let data;
 try {
@@ -23,6 +30,9 @@ try {
     console.error(err);
 }
 
+/**************************************************************************************/
+
+/************************** Parso il contenuto del file **************************/
 
 let result;
 try {
@@ -46,6 +56,9 @@ try {
     }
 }
 
+/**************************************************************************************/
+
+/************************** Scrivo il risultato del parse in un nuovo file **************************/
 
 try {
     fs.writeFileSync(fileToWrite, JSON.stringify(result)); // JSON.stringify() -> trasforma qualsiasi elemento in una stringa
@@ -53,5 +66,6 @@ try {
     console.log(error.message);
 }
 
+/**************************************************************************************/
 
 console.log("\nQui finisce il programma.");
