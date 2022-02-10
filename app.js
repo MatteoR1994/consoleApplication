@@ -106,7 +106,7 @@ try {
             console.log(error.message);
             console.log("E' stata fatto un parsing parziale: ", error.partialResult);
             const sum = error.partialResult.reduce((p, c) => p = p + c, 0);
-            console.log("Somma: ", sum);
+            console.log("Somma elementi array: ", sum);
         } else {
             console.log(error.message);
         }
